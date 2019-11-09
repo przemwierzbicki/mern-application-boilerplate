@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { connect } from 'react-redux';
+import { changeName } from './redux/store';
 
-function App() {
+function App({ name, changeName }) {
+  useEffect(() => {
+    changeName('michal');
+  }, [ changeName, name ]);
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          { name }
         </p>
         <a
           className="App-link"
@@ -23,4 +29,12 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    name: state.name,
+  };
+};
+
+export default connect(mapStateToProps, {
+  changeName,
+})(App);

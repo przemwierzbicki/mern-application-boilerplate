@@ -4,7 +4,9 @@ import './App.css';
 import { connect } from 'react-redux';
 import { changeName } from './redux/store';
 
-function App({ name, changeName }) {
+function App(props) {
+  const { name, changeName } = props;
+
   useEffect(() => {
     changeName('michal');
   }, [ changeName, name ]);

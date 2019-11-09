@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
-import { changeName } from './redux/store';
+import { changeName } from './redux/actions';
 
 function App(props) {
   const { name, changeName } = props;
 
   useEffect(() => {
     changeName('michal');
-  }, [ changeName, name ]);
+  }, [ ]);
 
   return (
     <div className="App">

@@ -18,13 +18,12 @@ mongoose.connection
   .on('connected', () => {
     console.log(color.green('database: connected'));
 
-    const user = new User({
-      name: 'przem',
-      email: 'przem@example.com',
-    });
+    // const user = new User({
+    //   name: 'przem',
+    //   email: 'przem@example.com',
+    // });
 
-    user.save();
-
+    // user.save();
   })
   .on('disconnected', () => {
     console.log(color.green('database: disconnected'));

@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "env-cmd -f ./src/config/dev.env nodemon index.js",
+    "dev:backend": "env-cmd -f ./src/config/dev.env nodemon index.js",
+    "dev:frontend": "npm run start --prefix ../frontend",
+    "dev:full": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "test": "env-cmd -f ./src/config/test.env jest --watch"
   },
   "author": "",
@@ -15,6 +17,7 @@
     "mongoose": "^5.7.9"
   },
   "devDependencies": {
+    "concurrently": "^5.0.0",
     "env-cmd": "^10.0.1",
     "jest": "^24.9.0",
     "nodemon": "^1.19.4"
